@@ -24,6 +24,6 @@ If($OneDrive_Kill_Status -eq $True)
 		Start-Process -FilePath $User_Profil_Path /background	
 	}
 			
-$Global:Current_Folder = split-path $MyInvocation.MyCommand.Path
-$Args = "$Current_Folder\AutoDepannage_Notification.ps1", "-Category 'Teams'"
-Start-Process -WindowStyle hidden "powershell.exe" -ArgumentList $Args
+#$Global:Current_Folder = split-path $MyInvocation.MyCommand.Path
+#$Args = "$Current_Folder\AutoDepannage_Notification.ps1", "-Category 'Teams'"
+#Start-Process -WindowStyle hidden "powershell.exe" -ArgumentList $Args

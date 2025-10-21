@@ -362,20 +362,6 @@ Else
 	$Solution_Mode.SelectedIndex="0"	
 }
 
-# STEK
-# --- UI vereinfachen: Komboboxen & "Ansicht"-Info ausblenden ---
-$Solution_Mode.Visibility       = 'Collapsed'   # Ansicht-Combo
-$Category_to_choose.Visibility  = 'Collapsed'   # Kategorie-Filter
-$View.Visibility                = 'Collapsed'   # kleiner Hilfe-/Info-Button neben Solution_Mode
-
-# Optional: Zähler und Suchfeld ebenfalls ausblenden (falls gewünscht)
-$Actions_Count.Visibility      = 'Collapsed'
-$FilterTextBox.Visibility      = 'Collapsed'
-
-# Sicherstellen, dass die Liste „All“ zeigt (ist ohnehin Standard, aber explizit ist besser):
-Populate_Datagrid -Issue_Cat "All"
-
-
 [MahApps.Metro.Controls.TextBoxHelper]::SetWatermark($FilterTextBox,$Issue_filter_KeyWord_Text)
 
 $Theme = [MahApps.Metro.ThemeManager]::DetectAppStyle($form)	

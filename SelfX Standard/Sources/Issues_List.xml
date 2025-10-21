@@ -15,43 +15,43 @@
 		<!-- </Action>	 -->
 
 		<Action>	
-			<Name>Solve an issue with Teams</Name>
+			<Name>Probleme mit Teams</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>You are experiencing an issue with the Teams client (slowness, incorrect status, transfer error, etc.)</Explanation>
-			<Script>Depannage_Teams_ResetCache.ps1</Script>
+			<Explanation>Du hast Probleme mit Teams (Netzwerkqualität, langsam, falscher Status, etc.)</Explanation>
+			<Script>AB_Clear_Teams_Cache.ps1</Script>
 			<Category>Teams</Category>	
-			<Alerte_MSG>The cache of your Teams client will be reset.
+			<Alerte_MSG>Teams Cache wird geleert und Teams neu gestartet.
 			
-The reset does not result in any data loss.	
+Es gehen keine Daten verloren
 
-Do you want to continue?</Alerte_MSG>	
+Möchtest du fortfahren?</Alerte_MSG>	
 		</Action>	
 
 		<Action>	
-			<Name>Solve an issue with Word</Name>
+			<Name>Probleme mit Word</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>You are working in Word, but it has stopped responding, and you can no longer do anything.</Explanation>
+			<Explanation>Test Word Text</Explanation>
 			<Script>Depannage_Office_Kill_Word.ps1</Script>
 			<Category>Office</Category>	
-			<Alerte_MSG>Word will close and reopen automatically.
+			<Alerte_MSG>Schließt und öffnet Word automatisch.
 
-Do you want to continue?	
+Möchtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
 		<Action>	
-			<Name>Solve an issue with Excel</Name>
+			<Name>Probleme mit Excel</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>You are working in Excel, but it has stopped responding, and you can no longer do anything.</Explanation>
+			<Explanation>Excel reagiert nicht mehr.</Explanation>
 			<Script>Depannage_Office_Kill_Excel.ps1</Script>
 			<Category>Office</Category>	
-			<Alerte_MSG>Excel will close and reopen automatically.
+			<Alerte_MSG>Excel wird geschlossen und startet wieder automatisch.
 
-Do you want to continue?	
+Möchtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
-		<Action>	
+		<!--<Action>	
 			<Name>Solve an issue with the Microsoft Store</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Vous avez des problèmes avec le store Microsoft (ouverture/installation d'applications...)</Explanation>
@@ -61,23 +61,21 @@ Do you want to continue?
 
 Click OK to attempt to resolve the issue.	
 			</Alerte_MSG>	
-		</Action>	
+		</Action>-->	
 
 		<Action>	
-			<Name>Solve an issue with OneDrive (method 1)</Name>
+			<Name>Probleme mit OneDrive (1)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>You are experiencing issues with the OneDrive client (file/folder synchronization, file opening, etc.)</Explanation>
+			<Explanation>OneDrive synchronisiert nicht oder öffnet Dateien nicht mehr</Explanation>
 			<Script>SelfX_OneDrive_Reboot.ps1</Script>
 			<Category>OneDrive</Category>	
-			<Alerte_MSG>OneDrive will close and reopen automatically.
-			
-If the issue persists, please proceed with Method 2.
+			<Alerte_MSG>OneDrive wird beendet und wieder gestartet
 
-Do you want to continue?	
+Möchtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 		
-		<Action>	
+		<!--<Action>	
 			<Name>Solve an issue with OneDrive (method 2)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>You are experiencing issues with the OneDrive client (file/folder synchronization, file opening, etc.) and have already completed Step 1.</Explanation>	
@@ -87,10 +85,10 @@ Do you want to continue?
 			
 The reset does not result in any data loss.	
 
-Do you want to continue?</Alerte_MSG>	
-		</Action>	
+Möchtest du fortfahren?</Alerte_MSG>	
+		</Action>-->
 
-		<Action>	
+		<!--<Action>	
 			<Name>The "Teams meeting" button is missing in Outlook</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>The "Teams meeting" button is missing in Outlook</Explanation>
@@ -100,40 +98,40 @@ Do you want to continue?</Alerte_MSG>
 			
 If the issue persists, please contact your support.
 	
-Do you want to continue?</Alerte_MSG>	
-		</Action>		
+Möchtest du fortfahren?</Alerte_MSG>	
+		</Action>-->
 
 		<!-- Part for device --> 
 		<Action>	
-			<Name>You have connexion issues on your devices</Name>
+			<Name>Internetverbindungs-Probleme</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Your are trying to go to some website but connexion does not seem to work, or you can not reach site, or you have some errors</Explanation>
+			<Explanation>Probleme beim Aufrufen einer Webseite</Explanation>
 			<Script>SelfX_Device_ClearCache.ps1</Script>
 			<Category>Device</Category>	
-			<Alerte_MSG>An action will be executed in background. Tru again after clicking on OK.		
+			<Alerte_MSG>Dein Cache wird gelöscht. Versuche es anschließend erneut.		
 
-	Do you want to continue ?		
+	Möchtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 
 		<Action>	
-			<Name>Your device is running slow</Name>
+			<Name>Dein Notepbook ist langsam</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Your device is running slow</Explanation>
+			<Explanation>Dein Notepbook ist langsam</Explanation>
 			<Script>SelfX_Device_DeviceSlow.ps1</Script>
 			<Category>Device</Category>	
-			<Alerte_MSG>Temporary files and recycle bin content will be deleted	
+			<Alerte_MSG>Temp Ordner und Papierkorb wird geleert.	
 
-	Do you want to continue ?		
+	Möchtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>		
 	</Quick_Solution>	
 
 
 
-	<Detailed_Solution>	
+	<!--<Detailed_Solution>-->
 		<!-- Part for browser --> 
-		<Action>	
+		<!--<Action>	
 			<Name>Clear Google Chrome browsing data (cache)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Clear Google Chrome browsing data (cache)</Explanation>
@@ -141,11 +139,11 @@ Do you want to continue?</Alerte_MSG>
 			<Category>Browser</Category>	
 			<Alerte_MSG>Google Chrome browsing data will be deleted.	
 
-	Do you want to continue ?		
+	Möchtest du fortfahren ?		
 			</Alerte_MSG>
-		</Action>
+		</Action>-->
 		
-		<Action>	
+		<!--<Action>	
 			<Name>Clear Firefox browsing data (cache)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Clear Firefox browsing data (cache)</Explanation>
@@ -153,13 +151,13 @@ Do you want to continue?</Alerte_MSG>
 			<Category>Browser</Category>	
 			<Alerte_MSG>Firefox browsing data will be deleted.	
 
-	Do you want to continue ?		
+	Möchtest du fortfahren ?		
 			</Alerte_MSG>
-		</Action>	
+		</Action>-->
 
 
 		<!-- Part for Outlook --> 
-		<Action>	
+		<!--<Action>	
 			<Name>The "Teams meeting" button is missing in Outlook</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>The "Teams meeting" button is missing in Outlook</Explanation>
@@ -167,29 +165,29 @@ Do you want to continue?</Alerte_MSG>
 			<Category>Outlook</Category>	
 			<Alerte_MSG>Outlook will close and then open again automatically.
 
-	Do you want to continue ?		
+	Möchtest du fortfahren ?		
 			</Alerte_MSG>
-		</Action>			
+		</Action>-->			
 
 		<!-- Part for ONEDRIVE --> 
-		<Action>	
-			<Name>Starting OneDrive client</Name>
+		<!-- <Action>	
+			<Name>Starte OneDrive</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>OneDrive is not running</Explanation>
+			<Explanation>OneDrive läuft nicht</Explanation>
 			<Script>SelfX_OneDrive_Run.ps1</Script>
 			<Category>OneDrive</Category>	
-			<Alerte_MSG>This action allow you to start your OneDrive client</Alerte_MSG>
+			<Alerte_MSG>OneDrive wird gestartet</Alerte_MSG>
 		</Action>
 
 		<Action>	
-			<Name>Restart OneDrive client</Name>
+			<Name>OneDrive neustarten</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Restarting OneDrive can sometimes solve some issues like synchronization issues.</Explanation>
 			<Script>SelfX_OneDrive_Reboot.ps1</Script>
 			<Category>OneDrive</Category>	
 			<Alerte_MSG>OneDrive will be closed and opened again automatically
 			
-	Do you want to continue ?</Alerte_MSG>
+	Möchtest du fortfahren ?</Alerte_MSG>
 		</Action>
 
 		<Action>	
@@ -207,7 +205,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>	
 		
 		<Action>	
@@ -218,7 +216,7 @@ Do you want to continue?</Alerte_MSG>
 			<Category>OneDrive</Category>	
 			<Alerte_MSG>OneDrive will be closed and opened again automatically
 			
-	Do you want to continue ?</Alerte_MSG>
+	Möchtest du fortfahren ?</Alerte_MSG>
 		</Action>	
 		
 
@@ -230,7 +228,7 @@ Do you want to continue?</Alerte_MSG>
 			<Category>OneDrive</Category>	
 			<Alerte_MSG>OneDrive will be closed and opened again automatically
 			
-	Do you want to continue ?</Alerte_MSG>
+	Möchtest du fortfahren ?</Alerte_MSG>
 		</Action>
 			
 		<Action>	
@@ -243,7 +241,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>		
 		
 		<Action>	
@@ -256,7 +254,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>	
 
 		<Action>	
@@ -269,7 +267,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>	
 
 		<Action>	
@@ -284,7 +282,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>		
 			
 		<Action>	
@@ -297,7 +295,7 @@ Do you want to continue?</Alerte_MSG>
 
 	If the issue is still here, run "Reset OneDrive" step
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>			
 
 		<Action>	
@@ -310,7 +308,7 @@ Do you want to continue?</Alerte_MSG>
 
 	Reseting OneDrive won't loss of data
 
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>	
 
 		<Action>	
@@ -329,11 +327,11 @@ Do you want to continue?</Alerte_MSG>
 
 	Reseting the OneDrive client will not cause any data loss.
 
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>			
-		
+		-->
 		<!-- Part for TEAMS --> 
-		<Action>	
+		<!-- <Action>	
 			<Name>Solve Teams connexion issues</Name>
 			<Buttons>Ok_Cancel</Buttons>								
 			<Explanation>You can not connect to Teams</Explanation>
@@ -345,7 +343,7 @@ Do you want to continue?</Alerte_MSG>
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
 			
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>	
 		
 		<Action>	
@@ -360,7 +358,7 @@ Do you want to continue?</Alerte_MSG>
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
 			
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>	
 			
 		<Action>	
@@ -375,7 +373,7 @@ Do you want to continue?</Alerte_MSG>
 
 	Reseting the OneDrive client will not cause any data loss.
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>		
 			
 		<Action>	
@@ -390,7 +388,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>			
 			
 		<Action>	
@@ -405,7 +403,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>			
 		
 		
@@ -422,7 +420,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>	
 			
 		<Action>	
@@ -437,7 +435,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>					
+	Möchtest du fortfahren ?</Alerte_MSG>					
 		</Action>		
 
 		<Action>
@@ -447,7 +445,7 @@ Do you want to continue?</Alerte_MSG>
 			<Script>SelfX_Teams_ResetCache.ps1</Script>
 			<Category>Teams</Category>
 			<Alerte_MSG>Teams will close and then open again automatically.
-			Do you want to continue ?</Alerte_MSG>
+			Möchtest du fortfahren ?</Alerte_MSG>
 		</Action>	
 		
 		<Action>	
@@ -462,7 +460,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>		
 		
 		
@@ -478,7 +476,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>		
 
 		<Action>	
@@ -493,7 +491,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>		
 
 		<Action>	
@@ -508,7 +506,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>		
 
 		<Action>	
@@ -523,7 +521,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>				
+	Möchtest du fortfahren ?</Alerte_MSG>				
 		</Action>	
 		
 		<Action>	
@@ -538,7 +536,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>		
 
 		<Action>	
@@ -553,7 +551,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>		
 		
 		<Action>	
@@ -568,7 +566,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>			
+	Möchtest du fortfahren ?</Alerte_MSG>			
 		</Action>		
 
 		<Action>	
@@ -583,7 +581,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>		
 		
 
@@ -599,7 +597,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>		
+	Möchtest du fortfahren ?</Alerte_MSG>		
 		</Action>		
 		
 
@@ -615,7 +613,7 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>	
 
 		
@@ -631,8 +629,8 @@ Do you want to continue?</Alerte_MSG>
 		
 	After reconnecting on Teams, if the issue still occur please contact your support.
 
-	Do you want to continue ?</Alerte_MSG>	
+	Möchtest du fortfahren ?</Alerte_MSG>	
 		</Action>		
-	</Detailed_Solution>	
+	</Detailed_Solution>-->	
 
 </Actions>

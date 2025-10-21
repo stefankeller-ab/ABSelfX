@@ -20,7 +20,7 @@ Sleep 10
 
 If($OneDrive_Kill_Status -eq $True)
 	{
-		$User_Profil_Path = "C:\Users\$Get_Current_user_Name\AppData\Local\Microsoft\OneDrive\OneDrive.exe"	
+		$User_Profil_Path = "C:\Program Files\Microsoft OneDrive\OneDrive.exe"
 		Start-Process -FilePath $User_Profil_Path /background	
 	}
 			

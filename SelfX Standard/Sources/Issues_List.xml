@@ -16,6 +16,18 @@ Möchtest du fortfahren?</Alerte_MSG>
 		</Action>	
 
 		<Action>	
+			<Name>Probleme mit Outlook</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Outlook reagiert nicht mehr.</Explanation>
+			<Script>AB_Outlook_Reboot.ps1</Script>
+			<Category>Office</Category>	
+			<Alerte_MSG>Outlook wird geschlossen und startet wieder automatisch.
+
+Möchtest du fortfahren?	
+			</Alerte_MSG>
+		</Action>	
+
+		<Action>	
 			<Name>Probleme mit Word</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Word reagiert nicht mehr</Explanation>
@@ -74,8 +86,7 @@ Möchtest du fortfahren?
 
 	Möchtest du fortfahren ?		
 			</Alerte_MSG>
-		</Action>		
-	</Quick_Solution>	
+		</Action>	
 
 		<Action>	
 			<Name>Problem mit dem Internet Browser Edge</Name>
@@ -87,5 +98,19 @@ Möchtest du fortfahren?
 
 	Möchtest du fortfahren ?		
 			</Alerte_MSG>
+		</Action>	
+
+		<Action>	
+			<Name>VPN verbindet sich nicht</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>VPN verbindet sich nicht | NAV startet nicht | ALLspektion importiert/exportiert nicht</Explanation>
+			<Script>AB_VPN_Restart.ps1</Script>
+			<Category>Browser</Category>	
+			<Alerte_MSG>Sophos VPN Client wird beendet und neugestartet. Falls nach Zugangsdaten gefragt wird, gib bitte folgendes ein:
+Vorname.Nachname und dein PC Passwort.	
+
+	Möchtest du fortfahren ?		
+			</Alerte_MSG>
 		</Action>
+	</Quick_Solution>	
 </Actions>

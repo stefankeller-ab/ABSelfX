@@ -1,4 +1,13 @@
-﻿$Excel_Process_Status = Get-WmiObject win32_process | Where-Object { $_.Name -like "*excel*" }
+﻿# Logs sammeln
+$Log = ""
+
+function Add-Log($text) {
+    $global:Log += "$text`r`n"
+    Write-Host $text
+}
+
+$Excel_Process_Status = Get-WmiObject win32_process | Where-Object { $_.Name -like "*excel*" }
+Add-Log("Excel_Process_Status: $Excel_Process_Status")
 
 If ($Excel_Process_Status -ne $null) {
     $Excel_Path = $Excel_Process_Status.Path
@@ -13,9 +22,8 @@ If ($Excel_Process_Status -ne $null) {
 Start-Sleep -Seconds 10
 If ($Kill_Status -eq $True) {
     Start-Process -FilePath $Excel_Path
-}
 
-# Optional: Benachrichtigungsskript starten (wenn vorhanden)
-# $Global:Current_Folder = Split-Path $MyInvocation.MyCommand.Path
-# $Args = "$Current_Folder\AutoDepannage_Notification.ps1", "-Category 'Excel'"
-# Start-Process -WindowStyle Hidden "powershell.exe" -ArgumentList $Args
+    $Global:Current_Folder = Split-Path $MyInvocation.MyCommand.Path
+    $CurrentScript = Split-Path -Leaf $MyInvocation.MyCommand.Path
+    Start-Process -WindowStyle Hidden "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$Current_Folder\Notification.ps1`" -Script `"$CurrentScript`" -Logs `"$Log`""
+}

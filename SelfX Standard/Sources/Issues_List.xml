@@ -3,12 +3,12 @@
 
 	<Quick_Solution>	
 		<Action>	
-			<Name>Probleme mit Teams</Name>
+			<Name>Teams</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Du hast Probleme mit Teams (Netzwerkqualität, langsam, falscher Status, etc.)</Explanation>
+			<Explanation>Teams ist langsam, zeigt einen falschen Status, zeigt "schlechte Netzwerkqualität" oder andere Probleme</Explanation>
 			<Script>AB_Clear_Teams_Cache.ps1</Script>
 			<Category>Teams</Category>	
-			<Alerte_MSG>Teams Cache wird geleert und Teams neu gestartet.
+			<Alerte_MSG>Teams Cache wird geleert und neu gestartet.
 			
 Es gehen keine Daten verloren
 
@@ -16,7 +16,7 @@ Möchtest du fortfahren?</Alerte_MSG>
 		</Action>	
 
 		<Action>	
-			<Name>Probleme mit Outlook</Name>
+			<Name>Outlook</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Outlook reagiert nicht mehr.</Explanation>
 			<Script>AB_Outlook_Reboot.ps1</Script>
@@ -28,7 +28,7 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<Action>	
-			<Name>Probleme mit Word</Name>
+			<Name>Word</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Word reagiert nicht mehr</Explanation>
 			<Script>SelfX_Word_Reboot.ps1</Script>
@@ -40,7 +40,7 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<Action>	
-			<Name>Probleme mit Excel</Name>
+			<Name>Excel</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Excel reagiert nicht mehr.</Explanation>
 			<Script>AB_Excel_Reboot.ps1</Script>
@@ -52,7 +52,7 @@ Möchtest du fortfahren?
 		</Action>		
 
 		<Action>	
-			<Name>Probleme mit OneDrive bzw. SharePoint</Name>
+			<Name>OneDrive bzw. SharePoint</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>OneDrive/Sharepoint synchronisiert nicht oder öffnet Dateien nicht mehr</Explanation>
 			<Script>SelfX_OneDrive_Reboot.ps1</Script>
@@ -65,7 +65,7 @@ Möchtest du fortfahren?
 
 		<!-- Part for device --> 
 		<Action>	
-			<Name>Internetverbindungs-Probleme</Name>
+			<Name>Internetverbindung</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Probleme beim Aufrufen einer Webseite</Explanation>
 			<Script>SelfX_Device_ClearCache.ps1</Script>
@@ -77,7 +77,7 @@ Möchtest du fortfahren?
 		</Action>
 
 		<Action>	
-			<Name>Dein Notebook ist langsam</Name>
+			<Name>Notebook ist langsam</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Dein Notebook ist langsam</Explanation>
 			<Script>SelfX_Device_DeviceSlow.ps1</Script>
@@ -89,7 +89,7 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<Action>	
-			<Name>Problem mit dem Internet Browser Edge</Name>
+			<Name>Internet Browser Edge</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Browser Daten werden gelöscht</Explanation>
 			<Script>AB_Browser_ClearEdgeCache.ps1</Script>
@@ -101,7 +101,7 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<Action>	
-			<Name>VPN verbindet sich nicht</Name>
+			<Name>VPN</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>VPN verbindet sich nicht | NAV startet nicht | ALLspektion importiert/exportiert nicht</Explanation>
 			<Script>AB_VPN_Restart.ps1</Script>

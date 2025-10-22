@@ -1,18 +1,31 @@
+# Logs sammeln
+$Log = ""
+
+function Add-Log($text) {
+    $global:Log += "$text`r`n"
+    Write-Host $text
+}
+
 # Sophos VPN-Client neu starten (nur mit taskkill)
 $vpnGuiExe = "scgui.exe"
 $vpnGuiPath = "C:\Program Files (x86)\Sophos\Connect\GUI\scgui.exe"
 
-Write-Host "Beende Sophos VPN GUI..."
+Add-Log("Beende Sophos VPN GUI...")
 Start-Process -FilePath "taskkill.exe" -ArgumentList "/IM $vpnGuiExe /F" -NoNewWindow -Wait
 
-Write-Host "Warte 2 Sekunden..."
+Add-Log("Warte 2 Sekunden...")
 Start-Sleep -Seconds 2
 
 # Sophos Connect GUI starten
 if (Test-Path $vpnGuiPath) {
-    Write-Host "Starte Sophos VPN GUI..."
+    Add-Log("Starte Sophos VPN GUI...")
     Start-Process -FilePath $vpnGuiPath -WindowStyle Normal
-    Write-Host "Sophos VPN-Client wurde erfolgreich gestartet."
+    Add-Log("Sophos VPN-Client wurde erfolgreich gestartet.")
 } else {
-    Write-Host "Sophos VPN GUI-Pfad nicht gefunden: $vpnGuiPath"
+    Add-Log("Sophos VPN GUI-Pfad nicht gefunden: $vpnGuiPath")
 }
+
+# Notification aufrufen und Logs übergeben
+$Current_Folder = Split-Path $MyInvocation.MyCommand.Path
+$CurrentScript = Split-Path -Leaf $MyInvocation.MyCommand.Path
+Start-Process -WindowStyle Hidden "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$Current_Folder\Notification.ps1`" -Script `"$CurrentScript`" -Logs `"$Log`""

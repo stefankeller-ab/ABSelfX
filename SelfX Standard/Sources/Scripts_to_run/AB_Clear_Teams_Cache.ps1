@@ -24,7 +24,7 @@ $Log = ""
 
 function Add-Log($text) {
     $global:Log += "$text`r`n"
-    Add-Log $text
+    Write-Host $Text
 }
 
 [CmdletBinding()]

@@ -19,14 +19,6 @@
     0 = Erfolg, 1 = Benutzer abgebrochen, 2 = Fehler beim Clear, 3 = unerwarteter Fehler.
 #>
 
-# Logs sammeln
-$Log = ""
-
-function Add-Log($text) {
-    $global:Log += "$text`r`n"
-    Write-Host $Text
-}
-
 [CmdletBinding()]
 param(
     [ValidateSet('Interactive','Silent')]
@@ -38,6 +30,14 @@ param(
 
     [string]$LogPath = "C:\Temp\Logs\ClearTeams2.log"
 )
+
+# Logs sammeln
+$Log = ""
+
+function Add-Log($text) {
+    $global:Log += "$text`r`n"
+    Write-Host $Text
+}
 
 # --- Option C: Self-Hide Bootstrap ------------------------------------------
 # Wenn im sichtbaren ConsoleHost gestartet und noch nicht "hidden" -> neu starten versteckt

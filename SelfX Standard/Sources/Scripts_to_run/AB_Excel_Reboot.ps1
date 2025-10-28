@@ -19,7 +19,7 @@ If ($Excel_Process_Status -ne $null) {
     }
 }
 
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 5
 If ($Kill_Status -eq $True) {
     Start-Process -FilePath $Excel_Path
 

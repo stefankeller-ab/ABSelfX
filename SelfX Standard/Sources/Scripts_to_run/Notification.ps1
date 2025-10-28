@@ -1,24 +1,25 @@
 param(
     [Parameter(Mandatory = $true)]
     [string]$Script,
-    [string]$Logs,
-    [string]$Recipient = "abit@allgaeubatterie.de"
+    [string]$Logs
 )
 
-# Microsoft Graph Modul laden
-Import-Module Microsoft.Graph -ErrorAction Stop
+function Send-NotificationEmail {
+    param(
+        [string]$Script,
+        [string]$Logs,
+        [string]$Recipient = "abit@allgaeubatterie.de",
+        [string]$Sender = "SelfX@allgaeubatterie.de",
+        [string]$SmtpServer = "allgaeubatterie-de.mail.protection.outlook.com",
+        [int]$Port = 25
+    )
 
-# Mit integriertem Token anmelden (funktioniert auf Entra-ID-joined Geräten)
-Connect-MgGraph -Identity
+    $username = $env:USERNAME
+    $hostname = $env:COMPUTERNAME
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
-# Benutzer- und Systeminfos
-$username  = $env:USERNAME
-$hostname  = $env:COMPUTERNAME
-$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-
-# Betreff und Body wie bisher
-$subject = "SelfX: Skript '$Script' wurde ausgefuehrt"
-$body = @"
+    $subject = "SelfX: Skript '$Script' wurde ausgefuehrt"
+    $body = @"
 Das Skript '$Script' wurde ausgefuehrt.
 
 Benutzer: $username
@@ -29,28 +30,13 @@ Zeitpunkt: $timestamp
 $Logs
 "@
 
-# E-Mail-Parameter für Graph
-$params = @{
-    Message = @{
-        Subject = $subject
-        Body = @{
-            ContentType = "Text"
-            Content = $body
-        }
-        ToRecipients = @(
-            @{
-                EmailAddress = @{
-                    Address = $Recipient
-                }
-            }
-        )
+    try {
+        Send-MailMessage -To $Recipient -From $Sender -Subject $subject `
+                         -Body $body -SmtpServer $SmtpServer -Port $Port
+        Write-Host "✅ E-Mail wurde erfolgreich versendet."
+    } catch {
+        Write-Warning "Fehler beim E-Mail-Versand: $($_.Exception.Message)"
     }
-    SaveToSentItems = "true"
 }
 
-try {
-    Send-MgUserMail -UserId $username -BodyParameter $params
-    Write-Host "E-Mail wurde erfolgreich über Microsoft Graph versendet."
-} catch {
-    Write-Warning "Fehler beim E-Mail-Versand über Graph: $($_.Exception.Message)"
-}
+Send-NotificationEmail -Script $Script -Logs $Logs

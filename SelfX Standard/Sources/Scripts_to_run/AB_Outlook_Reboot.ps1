@@ -7,41 +7,41 @@ function Add-Log($text) {
 }
 
 # Namen der ausführbaren Dateien
-$classicOutlook = "OUTLOOK.EXE"
-$newOutlook = "NewOutlook.exe"
+$classicOutlook = "OUTLOOK"
+$newOutlook = "olk"
 
-function Is-ProcessRunning($processName) {
-    Get-Process -Name $processName -ErrorAction SilentlyContinue
-}
+# Pfade ermitteln
+$classicPath = "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
+$newPath = (Get-Command $newOutlook -ErrorAction SilentlyContinue).Source
 
-function Kill-Process($processName) {
-    Stop-Process -Name $processName -Force -ErrorAction SilentlyContinue
-}
-
+# Prüfen, welche Version läuft
 $runningVersion = $null
-if (Is-ProcessRunning $classicOutlook) {
+if (Get-Process -Name $classicOutlook -ErrorAction SilentlyContinue) {
     $runningVersion = $classicOutlook
-} elseif (Is-ProcessRunning $newOutlook) {
+} elseif (Get-Process -Name $newOutlook -ErrorAction SilentlyContinue) {
     $runningVersion = $newOutlook
 }
 
 if ($runningVersion) {
-    Add-Log "$runningVersion wird geschlossen..."
-    Kill-Process $runningVersion
+    Add-Log("Beende $runningVersion...")
+    Start-Process -FilePath "taskkill.exe" -ArgumentList "/IM $runningVersion.exe /F" -NoNewWindow -Wait
+    Add-Log("Warte 3 Sekunden...")
     Start-Sleep -Seconds 3
 
-    $exePath = (Get-Command $runningVersion).Source
-    if ($exePath) {
-        Add-Log "$runningVersion wird neu gestartet..."
-        Start-Process $exePath
+    # Outlook neu starten
+    $exePath = if ($runningVersion -eq $classicOutlook) { $classicPath } else { $newPath }
+    if ($exePath -and (Test-Path $exePath)) {
+        Add-Log("Starte $runningVersion erneut...")
+        Start-Process -FilePath $exePath -WindowStyle Normal
+        Add-Log("$runningVersion wurde erfolgreich neu gestartet.")
     } else {
-        Add-Log "Fehler: $runningVersion konnte nicht gefunden werden."
+        Add-Log("Fehler: Pfad für $runningVersion nicht gefunden.")
     }
 } else {
-    Add-Log "Keine Outlook-Version läuft derzeit."
+    Add-Log("Keine Outlook-Version läuft derzeit.")
 }
 
 # Notification aufrufen und Logs übergeben
-$Current_Folder = Split-Path $MyInvocation.MyCommand.Path
+$Global:Current_Folder = Split-Path $MyInvocation.MyCommand.Path
 $CurrentScript = Split-Path -Leaf $MyInvocation.MyCommand.Path
 Start-Process -WindowStyle Hidden "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$Current_Folder\Notification.ps1`" -Script `"$CurrentScript`" -Logs `"$Log`""

@@ -1,4 +1,4 @@
-$Destination_folder = "$env:LOCALAPPDATA\SelfX"
+$Destination_folder = "$env:LOCALAPPDATA\SelfX\Scripts_to_run"
 If(test-path $Destination_folder)
 	{
 		write-output "SelfX detected, exiting"	

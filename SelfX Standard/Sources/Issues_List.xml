@@ -89,12 +89,13 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<Action>	
-			<Name>Internet Browser Edge</Name>
+			<Name>Internet Cache (Edge, Teams, Outlook)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Browser Daten werden gelöscht</Explanation>
 			<Script>AB_Browser_ClearEdgeCache.ps1</Script>
 			<Category>Browser</Category>	
-			<Alerte_MSG>Edge Browser Daten werden gelöscht. Gespeicherte Passwörter bleiben bestehen.	
+			<Alerte_MSG>Edge Browser Daten werden gelöscht. Gespeicherte Passwörter bleiben bestehen.
+	Edge wird dabei geschlossen. Outlook und auch Copilot könnten dabei auch geschlossen werden.	
 
 	Möchtest du fortfahren ?		
 			</Alerte_MSG>

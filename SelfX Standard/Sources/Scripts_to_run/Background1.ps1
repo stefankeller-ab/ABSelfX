@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Setzt ein festes Desktop-Hintergrundbild (HKCU) und aktualisiert es sofort.
+  Setzt ein festes Desktop-Hintergrundbild (HKCU) und wendet es sofort an.
 
 .PARAMETER ImagePath
   Optionaler Pfad zur Bilddatei (JPG/PNG/BMP).
@@ -16,20 +16,18 @@ param(
     [string]$Style = 'Fill'
 )
 
-# --- Standardpfad sicher bestimmen ---
+# --- Standardpfad, falls keiner angegeben
 if (-not $ImagePath) {
-    $scriptDir = $PSScriptRoot
-    if (-not $scriptDir) { $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path }
-    $ImagePath = Join-Path $scriptDir 'Backgrounds\Desktop-Hintergrund.jpg'
+    $ImagePath = Join-Path $PSScriptRoot 'Backgrounds\Desktop-Hintergrund.jpg'
 }
 
-# --- Bild prüfen ---
+# --- Bild prüfen
 if (-not (Test-Path -LiteralPath $ImagePath -PathType Leaf)) {
     Write-Host "Bild nicht gefunden: $ImagePath"
     exit 1
 }
 
-# --- Style-Mapping (HKCU\Control Panel\Desktop) ---
+# --- Style-Mapping
 $styleMap = @{
     'Fill'    = @{ WallpaperStyle = '10'; TileWallpaper = '0' }
     'Fit'     = @{ WallpaperStyle = '6';  TileWallpaper = '0' }
@@ -40,22 +38,30 @@ $styleMap = @{
 }
 $sel = $styleMap[$Style]
 
-# --- Registry (HKCU) setzen ---
+# --- Registry (HKCU) setzen
 $regPath = 'HKCU:\Control Panel\Desktop'
 Set-ItemProperty -Path $regPath -Name WallpaperStyle -Value $sel.WallpaperStyle
 Set-ItemProperty -Path $regPath -Name TileWallpaper   -Value $sel.TileWallpaper
 Set-ItemProperty -Path $regPath -Name Wallpaper       -Value $ImagePath
 
-# --- Zuverlässig anwenden via SystemParametersInfo (ohne Here-String/using) ---
-Add-Type -Namespace Win32 -Name NativeMethods -MemberDefinition '
-[System.Runtime.InteropServices.DllImport("user32.dll", SetLastError=true, CharSet=System.Runtime.InteropServices.CharSet.Auto)]
-public static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-'
+# --- Zuverlässig anwenden via SystemParametersInfo (PS 5.1-kompatibel)
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
+public static class NativeMethods {
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+    public static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+}
+"@
 
-$SPI_SETDESKWALLPAPER = 20
-$SPIF_UPDATEINIFILE   = 0x01
-$SPIF_SENDCHANGE      = 0x02
+$SPI_SETDESKWALLPAPER = 20;
+$SPIF_UPDATEINIFILE   = 0x01;
+$SPIF_SENDCHANGE      = 0x02;
 
-[void][Win32.NativeMethods]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $ImagePath, $SPIF_UPDATEINIFILE -bor $SPIF_SENDCHANGE)
+$ok = [NativeMethods]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $ImagePath, $SPIF_UPDATEINIFILE -bor $SPIF_SENDCHANGE)
+if (-not $ok) {
+    $err = [Runtime.InteropServices.Marshal]::GetLastWin32Error()
+    Write-Warning "SystemParametersInfo schlug fehl (Win32Error=$err). Ab-/Anmeldung könnte nötig sein."
+}
 
 Write-Host "Hintergrundbild gesetzt:`n  Datei: $ImagePath`n  Stil: $Style"

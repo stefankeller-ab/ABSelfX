@@ -11,6 +11,22 @@ param(
 
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | out-null
 
+$PackageName = "SelfX"
+$Version = "202511041"
+
+Start-Transcript -Path "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\$PackageName-install.log" -Force
+
+try{    
+    New-Item -Path "$ENV:LOCALAPPDATA\_MEM\$PackageName" -ItemType "file" -Force -Value $Version
+}catch{
+    Write-Host "_____________________________________________________________________"
+    Write-Host "ERROR"
+    Write-Host "$_"
+    Write-Host "_____________________________________________________________________"
+}
+
+Stop-Transcript
+
 $Current_Folder = split-path $MyInvocation.MyCommand.Path
 $Sources = $Current_Folder + "\" + "Sources\*"
 $Destination_folder = "$env:LOCALAPPDATA\SelfX"

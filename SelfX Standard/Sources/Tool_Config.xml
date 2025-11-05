@@ -1,6 +1,6 @@
 ﻿<GUI_Config>	
 	<Tool_Version>1.0.3</Tool_Version> <!-- Tool version -->
-	<Tool_Name>Allgäu Batterie - Hilfe zur Selbsthilfe</Tool_Name> <!-- Text displayed in the title bar --> 
+	<Tool_Name>Allgäu Batterie - IT Selbsthilfe</Tool_Name> <!-- Text displayed in the title bar --> 
 	
 	<!-- Path where to get the issues list XML file from the web -->	
 	<Link_Scripts></Link_Scripts> <!-- Type the path where to find Issues_List.xml--> 	
@@ -8,7 +8,7 @@
 	<!-- Shortcut location --> 
 	<Shortcut_Desktop>True</Shortcut_Desktop> <!-- Display or not a shortcut on the user desktop: True or False -->
 	<Shortcut_StartMenu>True</Shortcut_StartMenu> <!-- Display or not a shortcut on the user start menu: True or False -->
-	<Shortcut_Name>Allgäu Batterie - Hilfe Zur Selbsthilfe</Shortcut_Name> <!-- Text displayed in the title bar: True or False -->
+	<Shortcut_Name>Allgäu Batterie - IT Selbsthilfe</Shortcut_Name> <!-- Text displayed in the title bar: True or False -->
 
 	<!-- Toast notification displayed to the user after install --> 
 	<Show_Install_Toast>False</Show_Install_Toast> <!-- Display a toast to user after installing the tool: True or False -->
@@ -26,7 +26,7 @@ Click on the SelfX shortcut available on your desktop or Start menu to launch th
 	<Tool_Theme>Dark</Tool_Theme> <!-- Dark or Light -->
 	
 	<!-- Text displayed in the tool -->
-	<Main_Title_Text>Allgäu Batterie - Hilfe zur Selbsthilfe</Main_Title_Text> <!-- Main GUI: main title -->
+	<Main_Title_Text>Allgäu Batterie - IT Selbsthilfe</Main_Title_Text> <!-- Main GUI: main title -->
 	<Show_Computer_Name_MainGUI>True</Show_Computer_Name_MainGUI> <!-- Show the computer name beside the main title: True or False -->		
 	<Show_Computer_Name_title_bar>False</Show_Computer_Name_title_bar> <!-- Show the computer name beside the main title: True or False -->		
 		

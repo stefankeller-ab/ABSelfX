@@ -31,6 +31,14 @@ param(
     [string]$LogPath = "C:\Temp\Logs\ClearTeams2.log"
 )
 
+# Logs sammeln
+$Log = ""
+
+function Add-Log($text) {
+    $global:Log += "$text`r`n"
+    Write-Host $Text
+}
+
 # --- Option C: Self-Hide Bootstrap ------------------------------------------
 # Wenn im sichtbaren ConsoleHost gestartet und noch nicht "hidden" -> neu starten versteckt
 if ($Host.Name -eq 'ConsoleHost' -and $env:__CTS_HIDDEN -ne '1') {
@@ -146,16 +154,16 @@ function Clear-TeamsCacheSafe {
     )
 
     if (-not (Test-Path -LiteralPath $MsTeamsLocalPath)) {
-        Write-Host "Teams LocalCache nicht gefunden: $MsTeamsLocalPath"
+        Add-Log("Teams LocalCache nicht gefunden: $MsTeamsLocalPath")
         return
     }
 
     $MsTeamsLocalPath = Resolve-FullPath $MsTeamsLocalPath
     $BackgroundsDir   = Resolve-FullPath $BackgroundsDir
 
-    Write-Host "Bereinige 'safe': $MsTeamsLocalPath"
+    Add-Log("Bereinige 'safe': $MsTeamsLocalPath")
     if (Test-Path $WV2ProfilePath) {
-        Write-Host "Schuetze Persistenz: IndexedDB, Local Storage, Preferences"
+        Add-Log("Schuetze Persistenz: IndexedDB, Local Storage, Preferences") 
     }
 
     # 1) Definierte Cache-/Log-Ordner, die sicher geloescht werden koennen
@@ -264,7 +272,7 @@ function Show-ClearCacheDialog {
         try {
             $Window.Close()
 
-            Write-Host "Stoppe Teams-Prozess(e)..."
+            Add-Log "Stoppe Teams-Prozess(e)..."
             Stop-Process -Name $script:ProcessName -Force -ErrorAction SilentlyContinue
             Start-Sleep -Seconds 3
 
@@ -274,20 +282,20 @@ function Show-ClearCacheDialog {
                                  -KeepDirs         $script:KeepDirs `
                                  -KeepFile         $script:KeepFile
 
-            Write-Host "Starte Teams neu..."
+            Add-Log("Starte Teams neu...") 
             Start-Process $script:ProcessName -ErrorAction SilentlyContinue
 
-            Write-Host "Teams aufgeraeumt fuer $env:USERNAME"
+            Add-Log("Teams aufgeraeumt fuer $env:USERNAME")
             $script:ExitCode = 0
         } catch {
-            Write-Warning "Fehler beim Clear: $($_.Exception.Message)"
+            Add-Log("Fehler beim Clear: $($_.Exception.Message)")
             $script:ExitCode = 2
         }
     })
 
     $Window.FindName("ButtonAbort").Add_Click({
         $Window.Close()
-        Write-Host "Benutzer ($env:USERNAME) hat abgebrochen"
+        Add-Log("Benutzer ($env:USERNAME) hat abgebrochen")
         $script:ExitCode = 1
     })
 
@@ -298,7 +306,7 @@ function Show-ClearCacheDialog {
 try {
     Start-SafeTranscript -PreferredPath $LogPath
     if ($script:TranscriptStarted -and $script:TranscriptPath) {
-        Write-Host "Transcript gestartet: $($script:TranscriptPath)"
+        Add-Log("Transcript gestartet: $($script:TranscriptPath)")
     }
 
     $teamsProcs = Get-Process -Name $script:ProcessName -ErrorAction SilentlyContinue
@@ -308,7 +316,7 @@ try {
     }
     else {
         if ($teamsProcs) {
-            Write-Host "Silent/Auto: Stoppe Teams..."
+            Add-Log("Silent/Auto: Stoppe Teams...")
             Stop-Process -Name $script:ProcessName -Force -ErrorAction SilentlyContinue
             Start-Sleep -Seconds 3
         }
@@ -319,54 +327,22 @@ try {
                              -KeepDirs         $script:KeepDirs `
                              -KeepFile         $script:KeepFile
 
-        Write-Host "Starte Teams..."
+        Add-Log("Starte Teams...") 
         Start-Process $script:ProcessName -ErrorAction SilentlyContinue
 
-        Write-Host "Teams aufgeraeumt fuer $env:USERNAME"
+        Add-Log("Teams aufgeraeumt fuer $env:USERNAME")
         $script:ExitCode = 0
     }
 }
 catch {
-    Write-Warning "Unerwarteter Fehler: $($_.Exception.Message)"
+    Add-Log("Unerwarteter Fehler: $($_.Exception.Message)")
     $script:ExitCode = 3
 }
 finally {
     Stop-SafeTranscript
-    #Send-NotificationEmail -LogPath $script:TranscriptPath
+    $Global:Current_Folder = Split-Path $MyInvocation.MyCommand.Path
+    $CurrentScript = Split-Path -Leaf $MyInvocation.MyCommand.Path
+    Start-Process -WindowStyle Hidden "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$Current_Folder\Notification.ps1`" -Script `"$CurrentScript`" -Logs `"$Log`""
+
     exit $script:ExitCode
-}
-
-function Send-NotificationEmail {
-    param(
-        [string]$LogPath,
-        [string]$Recipient = "abit@allgaeubatterie.de",
-        [string]$Sender = "SelfX@allgaeubatterie.de",
-        [string]$SmtpServer = "allgaeubatterie-de.mail.protection.outlook.com",
-        [int]$Port = 25
-    )
-
-    $username = $env:USERNAME
-    $hostname = $env:COMPUTERNAME
-    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-
-    $body = @"
-Hallo,
-
-der Teams Cache wurde erfolgreich bereinigt.
-
-Benutzer: $username
-Hostname: $hostname
-Zeitpunkt: $timestamp
-
-Viele Grüße,
-Ihr Skript
-"@
-
-    try {
-        Send-MailMessage -To $Recipient -From $Sender -Subject "Teams Cache wurde erfolgreich bereinigt" `
-                         -Body $body -SmtpServer $SmtpServer -Port $Port
-        Write-Host "E-Mail wurde erfolgreich versendet."
-    } catch {
-        Write-Warning "Fehler beim E-Mail-Versand: $($_.Exception.Message)"
-    }
 }

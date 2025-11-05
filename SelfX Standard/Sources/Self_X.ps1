@@ -744,7 +744,7 @@ $Show_Computer_Name_title_bar = $GUI_Config.Show_Computer_Name_title_bar
 
 If($Show_Computer_Name_MainGUI -eq $True)
 	{
-		$Main_Title.Content = $GUI_Config.Main_Title_Text + " " + "($env:computername)"	+ " ?"
+		$Main_Title.Content = $GUI_Config.Main_Title_Text + " " + "($env:computername)"
 	}
 Else
 	{
@@ -753,7 +753,7 @@ Else
 
 If($Show_Computer_Name_title_bar -eq $True)
 	{
-		$Main_Title.Content = $GUI_Config.Main_Title_Text + " " + "($env:computername)"	+ " ?"
+		$Main_Title.Content = $GUI_Config.Main_Title_Text + " " + "($env:computername)"
 		$Form.Title = $Tool_Name + " " + "($env:computername)"			
 	}
 Else

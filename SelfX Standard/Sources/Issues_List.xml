@@ -64,6 +64,19 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<!-- Part for device --> 
+
+		<Action>	
+			<Name>Bilder lassen sich nicht öffnen</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Bilder (meistens von iPhones) lassen sich nicht öffnen</Explanation>
+			<Script>HEVC.ps1</Script>
+			<Category>Device</Category>	
+			<Alerte_MSG>Es öffnen sich eine Fenster mit einer Installation. Diese bitte durchführen und anschließend das Bild nochmal öffnen.		
+
+	Möchtest du fortfahren ?		
+			</Alerte_MSG>
+		</Action>
+
 		<Action>	
 			<Name>Internetverbindung</Name>
 			<Buttons>Ok_Cancel</Buttons>						

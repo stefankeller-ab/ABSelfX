@@ -1,5 +1,5 @@
 $PackageName = "SelfX"
-$Version = '202511131'
+$Version = '202511132'
 
 $ProgramVersion_current = Get-Content -Path "$ENV:LOCALAPPDATA\_MEM\$PackageName"
 

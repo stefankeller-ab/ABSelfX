@@ -1,8 +1,8 @@
-$Destination_folder = "$env:LOCALAPPDATA\SelfX\Scripts_to_run"
-If(test-path $Destination_folder)
-	{
-		write-output "SelfX detected, exiting"	
-		EXIT 0
-	}Else{
-		EXIT 1
-	}
+$PackageName = "SelfX"
+$Version = '202511131'
+
+$ProgramVersion_current = Get-Content -Path "$ENV:LOCALAPPDATA\_MEM\$PackageName"
+
+if($ProgramVersion_current -eq $Version){
+    Write-Host "Found it!"
+}

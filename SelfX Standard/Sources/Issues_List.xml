@@ -64,6 +64,20 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<!-- Part for device --> 
+
+		<Action>	
+			<Name>Bilder können nicht geöffnet werden</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Bilder von iPhones lassen sich am Notebook nicht öffnen</Explanation>
+			<Script>SelfX_OneDrive_Reboot.ps1</Script>
+			<Category>OneDrive</Category>	
+			<Alerte_MSG>Ein Fenster mit einer Installation wird sich öffnen. Diese bitte installieren.
+			Anschließend wieder versuchen das Bild zu öffnen.
+
+Möchtest du fortfahren?	
+			</Alerte_MSG>
+		</Action>	
+
 		<Action>	
 			<Name>Internetverbindung</Name>
 			<Buttons>Ok_Cancel</Buttons>						

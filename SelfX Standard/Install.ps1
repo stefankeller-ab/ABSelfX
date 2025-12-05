@@ -12,7 +12,7 @@ param(
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | out-null
 
 $PackageName = "SelfX"
-$Version = "202511041"
+$Version = "202512051"
 
 Start-Transcript -Path "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\$PackageName-install.log" -Force
 

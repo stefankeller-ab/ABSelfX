@@ -64,6 +64,18 @@ Möchtest du fortfahren?
 		</Action>	
 
 		<!-- Part for device --> 
+		<!-- DIG-317-->
+		<Action>	
+			<Name>Hauptdrucker</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Hauptdrucker druckt nicht mehr.</Explanation>
+			<Script>MyQ.ps1</Script>
+			<Category>Office</Category>	
+			<Alerte_MSG>Das Programm MyQ (Verbindung zum Drucker) wird beendet und neu gestartet.
+
+Möchtest du fortfahren?	
+			</Alerte_MSG>
+		</Action>
 
 		<Action>	
 			<Name>Bilder können nicht geöffnet werden</Name>

@@ -1,1 +1,1 @@
-& "$PSScriptRoot\HEVC.Appx"
+& "$PSScriptRoot\Microsoft.HEVCVideoExtension.Appx"

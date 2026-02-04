@@ -1,4 +1,4 @@
-﻿<Actions>
+<Actions>
 	<XML_Version>1.0.0</XML_Version>
 
 	<Quick_Solution>	
@@ -66,16 +66,17 @@ Möchtest du fortfahren?
 		<!-- Part for device --> 
 
 		<Action>	
-			<Name>Bilder lassen sich nicht öffnen</Name>
+			<Name>Bilder können nicht geöffnet werden</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Bilder (meistens von iPhones) lassen sich nicht öffnen</Explanation>
-			<Script>HEVC.ps1</Script>
-			<Category>Device</Category>	
-			<Alerte_MSG>Es öffnen sich eine Fenster mit einer Installation. Diese bitte durchführen und anschließend das Bild nochmal öffnen.		
+			<Explanation>Bilder von iPhones lassen sich am Notebook nicht öffnen</Explanation>
+			<Script>SelfX_OneDrive_Reboot.ps1</Script>
+			<Category>OneDrive</Category>	
+			<Alerte_MSG>Ein Fenster mit einer Installation wird sich öffnen. Diese bitte installieren.
+			Anschließend wieder versuchen das Bild zu öffnen.
 
-	Möchtest du fortfahren ?		
+Möchtest du fortfahren?	
 			</Alerte_MSG>
-		</Action>
+		</Action>	
 
 		<Action>	
 			<Name>Internetverbindung</Name>
@@ -122,6 +123,42 @@ Möchtest du fortfahren?
 			<Category>Browser</Category>	
 			<Alerte_MSG>Sophos VPN Client wird beendet und neugestartet. Falls nach Zugangsdaten gefragt wird, gib bitte folgendes ein:
 Vorname.Nachname und dein PC Passwort.	
+
+	Möchtest du fortfahren ?		
+			</Alerte_MSG>
+		</Action>
+
+		<Action>	
+			<Name>Teamviewer starten</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Startet den Teamviewer für IT Support</Explanation>
+			<Script>Teamviewer.ps1</Script>
+			<Category>Device</Category>	
+			<Alerte_MSG>Teamviewer wird gestartet. Bitte gib die ID und das Passwort an die IT durch
+
+	Möchtest du fortfahren ?		
+			</Alerte_MSG>
+		</Action>
+
+		<Action>	
+			<Name>Desktop Hintergrund 'Berge'</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Desktop Hintergrund 'Berge' einstellen</Explanation>
+			<Script>Background1.ps1 -Style Fill</Script>
+			<Category>Device</Category>	
+			<Alerte_MSG>Dein Desktop Hintergrund wird auf 'Berge' eingestellt auf allen Bildschirmen	
+
+	Möchtest du fortfahren ?		
+			</Alerte_MSG>
+		</Action>
+
+		<Action>	
+			<Name>Desktop Hintergrund 'Gute Energie'</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Desktop Hintergrund 'Gute Energie' einstellen</Explanation>
+			<Script>Background2.ps1 -Style Fill</Script>
+			<Category>Device</Category>	
+			<Alerte_MSG>Dein Desktop Hintergrund wird auf 'Gute Energie' eingestellt auf allen Bildschirmen	
 
 	Möchtest du fortfahren ?		
 			</Alerte_MSG>

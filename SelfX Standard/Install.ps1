@@ -12,7 +12,7 @@ param(
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | out-null
 
 $PackageName = "SelfX"
-$Version = "202511132"
+$Version = "202512051"
 
 Start-Transcript -Path "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\$PackageName-install.log" -Force
 
@@ -24,6 +24,8 @@ try{
     Write-Host "$_"
     Write-Host "_____________________________________________________________________"
 }
+
+Stop-Transcript
 
 $Current_Folder = split-path $MyInvocation.MyCommand.Path
 $Sources = $Current_Folder + "\" + "Sources\*"

@@ -3,6 +3,19 @@
 
 	<Quick_Solution>	
 		<Action>	
+			<Name>Field Service</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>Field Service wird zurueckgesetzt und neu gestartet</Explanation>
+			<Script>AB_Field_Service_Reset.ps1</Script>
+			<Category>Field Service</Category>	
+			<Alerte_MSG>Field Service wird zurückgesetzt und neu gestartet.
+			
+Field Service wird anschließend die Daten neu laden
+
+Möchtest du fortfahren?</Alerte_MSG>	
+		</Action>
+		
+		<Action>	
 			<Name>Teams</Name>
 			<Buttons>Ok_Cancel</Buttons>						
 			<Explanation>Teams ist langsam, zeigt einen falschen Status, zeigt "schlechte Netzwerkqualität" oder andere Probleme</Explanation>

@@ -8,24 +8,37 @@
 			<Explanation>Field Service wird zurueckgesetzt und neu gestartet</Explanation>
 			<Script>AB_Field_Service_Reset.ps1</Script>
 			<Category>Field Service</Category>	
-			<Alerte_MSG>Field Service wird zurückgesetzt und neu gestartet.
+			<Alerte_MSG>Field Service wird zurueckgesetzt und neu gestartet.
 			
-Field Service wird anschließend die Daten neu laden
+Field Service wird anschliessend die Daten neu laden
 
-Möchtest du fortfahren?</Alerte_MSG>	
+Moechtest du fortfahren?</Alerte_MSG>	
+		</Action>
+
+		<Action>	
+			<Name>BC - Business Central</Name>
+			<Buttons>Ok_Cancel</Buttons>						
+			<Explanation>BC wird zurueckgesetzt und neu gestartet</Explanation>
+			<Script>AB_BC_Reset.ps1</Script>
+			<Category>BC</Category>	
+			<Alerte_MSG>BC wird zurueckgesetzt und neu gestartet.
+			
+BC wird anschliessend die Daten neu laden
+
+Moechtest du fortfahren?</Alerte_MSG>	
 		</Action>
 		
 		<Action>	
 			<Name>Teams</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Teams ist langsam, zeigt einen falschen Status, zeigt "schlechte Netzwerkqualität" oder andere Probleme</Explanation>
+			<Explanation>Teams ist langsam, zeigt einen falschen Status, zeigt "schlechte Netzwerkqualitaet" oder andere Probleme</Explanation>
 			<Script>AB_Clear_Teams_Cache.ps1</Script>
 			<Category>Teams</Category>	
 			<Alerte_MSG>Teams Cache wird geleert und neu gestartet.
 			
 Es gehen keine Daten verloren
 
-Möchtest du fortfahren?</Alerte_MSG>	
+Moechtest du fortfahren?</Alerte_MSG>	
 		</Action>	
 
 		<Action>	
@@ -36,7 +49,7 @@ Möchtest du fortfahren?</Alerte_MSG>
 			<Category>Office</Category>	
 			<Alerte_MSG>Outlook wird geschlossen und startet wieder automatisch.
 
-Möchtest du fortfahren?	
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
@@ -46,9 +59,9 @@ Möchtest du fortfahren?
 			<Explanation>Word reagiert nicht mehr</Explanation>
 			<Script>SelfX_Word_Reboot.ps1</Script>
 			<Category>Office</Category>	
-			<Alerte_MSG>Schließt und öffnet Word automatisch.
-Achtung: Nicht-gespeicherte Elemente können verloren gehen.
-Möchtest du fortfahren?	
+			<Alerte_MSG>Schliesst und oeffnet Word automatisch.
+Achtung: Nicht-gespeicherte Elemente koennen verloren gehen.
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
@@ -59,20 +72,20 @@ Möchtest du fortfahren?
 			<Script>AB_Excel_Reboot.ps1</Script>
 			<Category>Office</Category>	
 			<Alerte_MSG>Excel wird geschlossen und startet wieder automatisch.
-Achtung: Nicht-gespeicherte Elemente können verloren gehen.
-Möchtest du fortfahren?	
+Achtung: Nicht-gespeicherte Elemente koennen verloren gehen.
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>		
 
 		<Action>	
 			<Name>OneDrive bzw. SharePoint</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>OneDrive/Sharepoint synchronisiert nicht oder öffnet Dateien nicht mehr</Explanation>
+			<Explanation>OneDrive/Sharepoint synchronisiert nicht oder oeffnet Dateien nicht mehr</Explanation>
 			<Script>SelfX_OneDrive_Reboot.ps1</Script>
 			<Category>OneDrive</Category>	
 			<Alerte_MSG>OneDrive wird beendet und wieder gestartet
 
-Möchtest du fortfahren?	
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
@@ -86,20 +99,20 @@ Möchtest du fortfahren?
 			<Category>Office</Category>	
 			<Alerte_MSG>Das Programm MyQ (Verbindung zum Drucker) wird beendet und neu gestartet.
 
-Möchtest du fortfahren?	
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>
 
 		<Action>	
-			<Name>Bilder können nicht geöffnet werden</Name>
+			<Name>Bilder koennen nicht geoeffnet werden</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Bilder von iPhones lassen sich am Notebook nicht öffnen</Explanation>
+			<Explanation>Bilder von iPhones lassen sich am Notebook nicht oeffnen</Explanation>
 			<Script>SelfX_OneDrive_Reboot.ps1</Script>
 			<Category>OneDrive</Category>	
-			<Alerte_MSG>Ein Fenster mit einer Installation wird sich öffnen. Diese bitte installieren.
-			Anschließend wieder versuchen das Bild zu öffnen.
+			<Alerte_MSG>Ein Fenster mit einer Installation wird sich oeffnen. Diese bitte installieren.
+			Anschliessend wieder versuchen das Bild zu oeffnen.
 
-Möchtest du fortfahren?	
+Moechtest du fortfahren?	
 			</Alerte_MSG>
 		</Action>	
 
@@ -109,9 +122,9 @@ Möchtest du fortfahren?
 			<Explanation>Probleme beim Aufrufen einer Webseite</Explanation>
 			<Script>SelfX_Device_ClearCache.ps1</Script>
 			<Category>Device</Category>	
-			<Alerte_MSG>Dein Cache wird gelöscht und das Notebook neugestartet. Versuche es anschließend erneut.		
+			<Alerte_MSG>Dein Cache wird geloescht und das Notebook neugestartet. Versuche es anschliessend erneut.		
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 
@@ -123,20 +136,20 @@ Möchtest du fortfahren?
 			<Category>Device</Category>	
 			<Alerte_MSG>Temp Ordner und Papierkorb werden unwiederuflich geleert und das Notebook startet neu.	
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>	
 
 		<Action>	
 			<Name>Internet Cache (Edge, Teams, Outlook)</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Browser Daten werden gelöscht</Explanation>
+			<Explanation>Browser Daten werden geloescht</Explanation>
 			<Script>AB_Browser_ClearEdgeCache.ps1</Script>
 			<Category>Browser</Category>	
-			<Alerte_MSG>Edge Browser Daten werden gelöscht. Gespeicherte Passwörter bleiben bestehen.
-	Edge wird dabei geschlossen. Outlook und auch Copilot könnten dabei auch geschlossen werden.	
+			<Alerte_MSG>Edge Browser Daten werden geloescht. Gespeicherte Passwoerter bleiben bestehen.
+	Edge wird dabei geschlossen. Outlook und auch Copilot koennten dabei auch geschlossen werden.	
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>	
 
@@ -149,19 +162,19 @@ Möchtest du fortfahren?
 			<Alerte_MSG>Sophos VPN Client wird beendet und neugestartet. Falls nach Zugangsdaten gefragt wird, gib bitte folgendes ein:
 Vorname.Nachname und dein PC Passwort.	
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 
 		<Action>	
 			<Name>Teamviewer starten</Name>
 			<Buttons>Ok_Cancel</Buttons>						
-			<Explanation>Startet den Teamviewer für IT Support</Explanation>
+			<Explanation>Startet den Teamviewer fuer IT Support</Explanation>
 			<Script>Teamviewer.ps1</Script>
 			<Category>Device</Category>	
 			<Alerte_MSG>Teamviewer wird gestartet. Bitte gib die ID und das Passwort an die IT durch
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 
@@ -173,7 +186,7 @@ Vorname.Nachname und dein PC Passwort.
 			<Category>Device</Category>	
 			<Alerte_MSG>Dein Desktop Hintergrund wird auf 'Berge' eingestellt auf allen Bildschirmen	
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 
@@ -185,7 +198,7 @@ Vorname.Nachname und dein PC Passwort.
 			<Category>Device</Category>	
 			<Alerte_MSG>Dein Desktop Hintergrund wird auf 'Gute Energie' eingestellt auf allen Bildschirmen	
 
-	Möchtest du fortfahren ?		
+	Moechtest du fortfahren ?		
 			</Alerte_MSG>
 		</Action>
 	</Quick_Solution>	
